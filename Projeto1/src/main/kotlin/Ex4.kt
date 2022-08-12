@@ -5,6 +5,8 @@ class Ex4 {
         val matrizSoma = Array(4) { IntArray(6) }
         val matrizDiferenca = Array(4) { IntArray(6) }
 
+        println("Execução do exercicio abaixo\n\n")
+
         println("----------Matriz A------------------")
 
         for (linha in matrizA.indices) {

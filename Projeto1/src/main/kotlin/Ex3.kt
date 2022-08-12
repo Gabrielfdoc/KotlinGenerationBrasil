@@ -3,6 +3,8 @@ class Ex3 {
         var notas = DoubleArray(5)
         val maiorNota: Double
 
+        println("Execução do exercicio abaixo\n\n")
+
         for (index in notas.indices) {
             println("Digite uma nota: ")
             val notaLida = readln()
