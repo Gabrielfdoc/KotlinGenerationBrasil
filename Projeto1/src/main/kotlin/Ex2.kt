@@ -5,8 +5,8 @@ class Ex2 {
         val scanner = Scanner(System.`in`)
         var numeroLido: Int
         var contador = 0
-        var soma = 0
-        var media = 0
+        var soma = 0.0
+        var media = 0.0
 
         println("Execução do exercicio abaixo\n\n")
         println("Digite um número positivo ou o programa será encerrado: ")

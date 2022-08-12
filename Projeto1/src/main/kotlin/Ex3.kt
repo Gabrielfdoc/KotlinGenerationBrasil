@@ -2,7 +2,6 @@ class Ex3 {
     fun ex3() {
         var notas = DoubleArray(5)
         val maiorNota: Double
-
         println("Execução do exercicio abaixo\n\n")
 
         for (index in notas.indices) {
