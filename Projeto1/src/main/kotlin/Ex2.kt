@@ -6,7 +6,6 @@ class Ex2 {
         var numeroLido: Int
         var contador = 0
         var soma = 0.0
-        var media = 0.0
 
         println("Execução do exercicio abaixo\n\n")
         println("Digite um número positivo ou o programa será encerrado: ")
@@ -20,10 +19,9 @@ class Ex2 {
             soma += numeroLido
             println("Digite um número positivo ou o programa será encerrado: ")
             numeroLido = scanner.nextInt()
-            media = soma / contador
         }
         println("O total de números lidos é $contador")
         println("A somatória dos números lidos é $soma")
-        println("A média dos números lidos é $media")
+        println("A média dos números lidos é ${soma / contador}")
     }
 }
