@@ -1,3 +1,5 @@
+import kotlin.math.pow
+
 class Ex2 {
     fun ex2() {
         println("Execução do exercicio abaixo:\n\n")
@@ -7,7 +9,7 @@ class Ex2 {
 
         val pi = 3.14
 
-        println("A area do círculo é ${pi * (diametro * diametro) / 4}")
-        print("O perimetro do círculo é ${diametro * pi}")
+        println("A area do círculo é ${"%.2f".format(pi * (diametro.pow(2)) / 4)}")
+        print("O perimetro do círculo é ${"%.2f".format(diametro * pi)}")
     }
 }
