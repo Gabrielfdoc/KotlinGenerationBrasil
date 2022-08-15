@@ -1,3 +1,5 @@
+import java.time.LocalDate
+
 class Ex1 {
     fun ex1() {
         println("Execução do exercicio abaixo:\n\n")
@@ -5,13 +7,15 @@ class Ex1 {
         print("Digite a sua idade: ")
         val idade = readln().toInt()
 
-        print("Você já fez aniversário este ano? Utilize apenas SIM ou NÃO: ")
-        val aniversario = readln()
+        print("Você já fez aniversário este ano? (s/n): ")
+        val fezAniversario = readln()
 
-        if (aniversario == "SIM") {
-            println("O ano de nascimento é ${2022 - idade}")
-        } else if (aniversario == "NÃO") {
-            println("O ano de nascimento é ${2022 - idade - 1}")
+        val anoAtual = LocalDate.now().year
+
+        if (fezAniversario == "s") {
+            println("O ano de nascimento é ${anoAtual - idade}")
+        } else if (fezAniversario == "n") {
+            println("O ano de nascimento é ${anoAtual - idade - 1}")
         }
     }
 }
