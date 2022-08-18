@@ -44,25 +44,25 @@ class Ex4 {
                 }
             }
             if (humor == "Calmo")
-                pessoasCalmas += 1
+                pessoasCalmas = pessoasCalmas.inc()
             if (sexo == "Feminino" && humor == "Nervoso")
-                mulheresNervosas += 1
+                mulheresNervosas = pessoasCalmas.inc()
             if (sexo == "Masculino" && humor == "Agressivo")
-                homensAgressivos += 1
+                homensAgressivos = homensAgressivos.inc()
             if (sexo == "Outros" && humor == "Calmo")
-                outrosCalmos += 1
+                outrosCalmos = outrosCalmos.inc()
             if (idade >= 40 && humor == "Nervoso")
-                nervososAcimaDe40 += 1
+                nervososAcimaDe40 = nervososAcimaDe40.inc()
             if (idade <= 18 && humor == "Calmo")
-                calmosAbaixoDe18 += 1
+                calmosAbaixoDe18 = calmosAbaixoDe18.inc()
 
             pesquisas++
         }
         println("O número de pessoas calmas é: $pessoasCalmas")
         println("O número de mulheres nervosas é: $mulheresNervosas")
         println("O número de homens agressivos é: $homensAgressivos")
-        println("O número de pessoes de outros genêros calmes é: $outrosCalmos")
-        println("O número de com mais de 40 anos e nervosas é: $nervososAcimaDe40")
+        println("O número de pessoas de outros genêros calmas é: $outrosCalmos")
+        println("O número de pessoas com mais de 40 anos e nervosas é: $nervososAcimaDe40")
         println("O número de pessoas calmas abaixo de 18 anos é: $calmosAbaixoDe18")
     }
 }

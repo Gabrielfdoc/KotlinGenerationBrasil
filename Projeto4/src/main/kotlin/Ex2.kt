@@ -7,9 +7,9 @@ class Ex2 {
         for (i in 1..10) {
 
             print("Digite um número: ")
-            val num = readln().toInt()
+            val numero = readln().toInt()
 
-            if (num % 2 == 0)
+            if (numero % 2 == 0)
                 par += 1
         }
         println("Existe um total de $par números pares.")
