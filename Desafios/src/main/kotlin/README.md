@@ -9,3 +9,5 @@ Informe os meses: 10
 Informe os dias: 4
 
 Sua idade em dias é: 11254 
+
+2- Faça uma calculadora que receba 2 números do usuário e realize o cáculo pedido, utilizando funções
