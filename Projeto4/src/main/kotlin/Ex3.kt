@@ -5,11 +5,11 @@ class Ex3 {
         var idadeAte21 = 0
         var idadeAcima50 = 0
 
-        print("Digite a idade (Para encerrar digite -99): ");
+        print("Digite a idade (Para encerrar digite -99): ")
         var idade = readln().toInt()
 
         while (idade != -99) {
-            print("Digite a idade (Para encerrar digite -99): ");
+            print("Digite a idade (Para encerrar digite -99): ")
             idade = readln().toInt()
 
             if (idade < 21) {
