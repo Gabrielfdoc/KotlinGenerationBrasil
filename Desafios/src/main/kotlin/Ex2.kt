@@ -36,18 +36,18 @@ class Ex2 {
     }
 }
 
-private fun soma(n1: Int, n2: Int): Int {
-    return n1 + n2
+private fun soma(parcela1: Int, parcela2: Int): Int {
+    return parcela1 + parcela2
 }
 
-private fun subtracao(n1: Int, n2: Int): Int {
-    return n1 - n2
+private fun subtracao(minuendo: Int, subtraendo: Int): Int {
+    return minuendo - subtraendo
 }
 
-private fun multiplicacao(n1: Int, n2: Int): Int {
-    return n1 * n2
+private fun multiplicacao(fator1: Int, fator2: Int): Int {
+    return fator1 * fator2
 }
 
-private fun divisao(n1: Int, n2: Int): Int {
-    return n1 / n2
+private fun divisao(dividendo: Int, divisor: Int): Int {
+    return dividendo / divisor
 }
