@@ -14,20 +14,20 @@ class Ex2 {
 
         when (readln()) {
             "1" -> {
-                    resultado = soma(n1, n2)
-                    println("\nO resultado da soma é $resultado")
+                resultado = soma(n1, n2)
+                println("\nO resultado da soma é $resultado")
             }
             "2" -> {
-                    resultado = subtracao(n1, n2)
-                    println("\nO resultado da subtração é $resultado")
+                resultado = subtracao(n1, n2)
+                println("\nO resultado da subtração é $resultado")
             }
             "3" -> {
-                    resultado = divisao(n1, n2)
-                    println("\nO resultado da divisão é $resultado")
+                resultado = divisao(n1, n2)
+                println("\nO resultado da divisão é $resultado")
             }
             "4" -> {
-                    resultado = multiplicacao(n1, n2)
-                    println("\nO resultado da multiplicação é $resultado")
+                resultado = multiplicacao(n1, n2)
+                println("\nO resultado da multiplicação é $resultado")
             }
             else -> {
                 println("\nA operação escolhida não existe!")
