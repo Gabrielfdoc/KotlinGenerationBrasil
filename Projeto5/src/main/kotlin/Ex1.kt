@@ -6,7 +6,7 @@ class Ex1 {
 
         while (true) {
 
-            println("1- Adicionar produto")
+            println("1 - Adicionar produto")
             println("2 - Remover produto")
             println("3 - Atualizar produto")
             println("4 - Ver produtos")
@@ -29,7 +29,7 @@ private fun subMenuAdicionar() {
     armazenaProdutos()
     while (true) {
 
-        println("1- Se deseja adicionar um novo produto")
+        println("1 - Se deseja adicionar um novo produto")
         println("2 - Se deseja sair")
 
         when (readln()) {
@@ -58,7 +58,7 @@ private fun subMenuRemover() {
     removeProdutos()
     while (true) {
 
-        println("1- Se deseja remover um produto")
+        println("1 - Se deseja remover um produto")
         println("2 - Se deseja sair")
 
         when (readln()) {
@@ -88,7 +88,7 @@ private fun subMenuAtualizaDados() {
     atualizaDados()
     while (true) {
 
-        println("1- Se deseja atualizar um produto")
+        println("1 - Se deseja atualizar um produto")
         println("2 - Se deseja sair")
 
         when (readln()) {
