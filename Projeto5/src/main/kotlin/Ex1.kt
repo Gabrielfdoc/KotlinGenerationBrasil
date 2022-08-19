@@ -71,16 +71,16 @@ private fun subMenuRemover() {
 
 private fun removeProdutos() {
 
-        println("Veja os produtos disponiveis e em seguida digite um produto para ser removido: ")
-        println(produtos)
-        val produtoDeletado = readln()
+    println("Veja os produtos disponiveis e em seguida digite um produto para ser removido: ")
+    println(produtos)
+    val produtoDeletado = readln()
 
-        if (produtos.contains(produtoDeletado)) {
-            produtos.remove(produtoDeletado)
-            println("$produtoDeletado excluído com sucesso!\n")
-        } else {
-            println("O produto $produtoDeletado não está no estoque!\n")
-        }
+    if (produtos.contains(produtoDeletado)) {
+        produtos.remove(produtoDeletado)
+        println("$produtoDeletado excluído com sucesso!\n")
+    } else {
+        println("O produto $produtoDeletado não está no estoque!\n")
+    }
 }
 
 private fun subMenuAtualizaDados() {
