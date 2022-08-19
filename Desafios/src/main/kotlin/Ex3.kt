@@ -1,16 +1,31 @@
 class Ex3 {
     fun ex3() {
 
-        for (num in 1..100) {
+        encontraMultiplosDe3E5(100)
+    }
 
-            if (num % 3 == 0 && num % 5 == 0) {
+    private fun encontraMultiplosDe3E5(n: Int) {
+        var multiploDe3 = 3
+        var multiploDe5 = 5
+        for (i in 1..n) {
+            var _3 = false
+            var _5 = false
+            if (i == multiploDe3) {
+                multiploDe3 += 3
+                _3 = true
+            }
+            if (i == multiploDe5) {
+                multiploDe5 += 5
+                _5 = true
+            }
+            if (_3 && _5) {
                 println("Fizzbuzz")
-            } else if (num % 3 == 0) {
+            } else if (_3) {
                 println("Fizz")
-            } else if (num % 5 == 0){
+            } else if (_5) {
                 println("Buzz")
             } else {
-                println(num)
+                println(i)
             }
         }
     }
