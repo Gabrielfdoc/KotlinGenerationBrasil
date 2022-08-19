@@ -45,7 +45,7 @@ private fun armazenaProdutos() {
     println("Digite um produto: ")
     val produto = readln()
 
-    if (produto.isNotEmpty()) {
+    if (produto.isNotBlank()) {
         produtos.add(produto)
         println("Produto adicionado com sucesso\n")
     } else {
