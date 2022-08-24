@@ -6,13 +6,20 @@ class Preguica(
 
     override fun emitindoSom() {
         println()
-        println("$nome está emitindo som desconhecido")
+        when((1..2).random()) {
+            1 -> println("$nome está emitindo um som desconhecido!")
+            2 -> println("$nome está em completo silêncio(Momento instrospectivo?!).")
+        }
         println()
     }
 
     override fun locomovendo() {
         println()
-        println("$nome está subindo em uma árvore")
+        when((1..3).random()){
+            1 -> println("$nome está subindo em uma árvore!")
+            2 -> println("$nome está parado curtindo uma preguicinha.")
+            3 -> println("$nome está caminhando lentamente(Até mesmo para os padrões de uma preguiça)!")
+        }
         println()
     }
 

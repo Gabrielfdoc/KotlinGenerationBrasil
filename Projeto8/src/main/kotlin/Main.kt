@@ -164,7 +164,6 @@ private fun subMenuescolheAnimalParaExibir() {
 }
 
 private fun escolheAnimalParaExibir() {
-    while (true) {
 
         println("1 - Se deseja exibir os dados de todos os cavalos cadastrados")
         println("2 - Se deseja exibir os dados de todos os cachorros cadastrados")
@@ -197,7 +196,6 @@ private fun escolheAnimalParaExibir() {
             }
             else -> println("A opção escolhida não existe!\n")
         }
-    }
 }
 
 private fun subMenuescolheAnimalParaMovimentar() {
