@@ -41,7 +41,7 @@ class Ex1 {
 }
 
 private fun exibeClientesParaAtualizacao() {
-    for (cliente in clientes) {
+    clientes.forEach { cliente ->
         println("Nome: ${cliente.nome}")
     }
 }
