@@ -5,7 +5,8 @@ class Cliente(
 
     ) {
 
-    private val listaDeCompras = mutableListOf<String>()
+    private val _listaDeCompras = mutableListOf<String>()
+    val listaDeCompras: List<String> = _listaDeCompras
 
     init {
         checarNome()
@@ -21,7 +22,7 @@ class Cliente(
 
     fun exibirListaDeCompras() {
         println("***Lista de Compras***\n")
-        listaDeCompras.forEach {
+        _listaDeCompras.forEach {
             println(it)
         }
     }
@@ -29,7 +30,7 @@ class Cliente(
     fun adicionarProduto(produto: String) {
 
         if (produto.isNotBlank()) {
-            listaDeCompras.add(produto)
+            _listaDeCompras.add(produto)
             println("Produto adicionado com sucesso!\n")
         } else {
             println("O produto digitado é inválido!\n")
@@ -39,11 +40,11 @@ class Cliente(
     fun removerProduto() {
 
         println("Veja os produtos disponiveis e em seguida digite um produto para ser removido: ")
-        println(listaDeCompras)
+        println(_listaDeCompras)
         val produtoDeletado = readln()
 
-        if (listaDeCompras.contains(produtoDeletado)) {
-            listaDeCompras.remove(produtoDeletado)
+        if (_listaDeCompras.contains(produtoDeletado)) {
+            _listaDeCompras.remove(produtoDeletado)
             println("$produtoDeletado excluído com sucesso!\n")
         } else {
             println("O produto $produtoDeletado não está no estoque!\n")
