@@ -17,15 +17,15 @@ fun main() {
                 when (readln()) {
                     "1" -> cadastroUsuario()
                     "2" -> {
-                        println("\nListando Cadastros...")
+                        println("\nVeja a lista de usuários cadastrados abaixo:\n")
                         listaCadastros.forEach { cadastro ->
-                            println()
                             println(cadastro)
+                            println()
                         }
                     }
                     "3" -> {
-                        println("\nListando Postagens...")
-                        println(CadastroMedico.listarPostagens())
+                        println("\nVeja a lista de postagens abaixo:\n")
+                        println(Postagens.listarPostagens())
                     }
                     "4" -> {
                         println("Criando postagens!")
@@ -82,7 +82,7 @@ fun deletaPostagens() {
                 print("Digite o ID do post que será deletado: ")
                 val id = readln().toInt()
 
-                if (CadastroMedico.postagens[id].contains(resp)) {
+                if (Postagens.postagens[id].contains(resp)) {
                     cadastro.deletarPostagem(id)
                 } else {
                     println("Post não pertence a este médico!")
@@ -92,7 +92,7 @@ fun deletaPostagens() {
                 print("Digite o ID do post que será deletado: ")
                 val id = readln().toInt()
 
-                if (CadastroMedico.postagens[id].contains(resp)) {
+                if (Postagens.postagens[id].contains(resp)) {
                     cadastro.deletarPostagem(id)
                 }
             } else {
@@ -125,20 +125,32 @@ fun cadastroUsuario() {
         "1" -> {
             print("Informe o CPF: ")
             val cpf = readln()
+            if (cpf.length != 11)
+                throw IllegalArgumentException("CPF deverá conter exatamente 11 números!")
+
             val cadastro = CadastroUsuario(nome, login, senha, telefone, cpf)
             listaCadastros.add(cadastro)
         }
         "2" -> {
             print("Informe o CPF: ")
             val cpf = readln()
+            if (cpf.length != 11)
+                throw IllegalArgumentException("CPF deverá conter exatamente 11 números!")
+
             print("Informe o CRM: ")
             val crm = readln()
+            if (crm.length != 8)
+                throw IllegalArgumentException("CRM deverá conter exatamente 8 caracteres!")
+
             val cadastro = CadastroMedico(nome, login, senha, telefone, cpf, crm)
             listaCadastros.add(cadastro)
         }
         "3" -> {
             print("Informe o CNPJ: ")
             val cnpj = readln()
+            if (cnpj.length != 14)
+                throw IllegalArgumentException("CNPJ deve conter exatamente 14 números!")
+
             val cadastro = CadastroEstabelcimento(nome, login, senha, telefone, cnpj)
             listaCadastros.add(cadastro)
         }
@@ -160,9 +172,11 @@ fun criandoPosts() {
             println("Olá estabelecimento ${cadastro.pegaNome()}")
             print("Insira sua postagem: ")
             val post = readln()
+
+            if (post.isBlank())
             cadastro.criarPostagem(post)
         } else {
-            println("Dados não encontrados!")
+            throw IllegalArgumentException("\nDados não encontrados!\n")
         }
     }
 }

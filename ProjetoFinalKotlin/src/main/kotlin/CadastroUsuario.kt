@@ -1,3 +1,6 @@
+import BancoDeInformacoes.Companion.cpfsCadastrados
+import Postagens.Companion.postagens
+
 class CadastroUsuario(
     nome: String,
     login: String,
@@ -7,32 +10,33 @@ class CadastroUsuario(
 ) : Cadastro(nome, login, senha, telefone) {
 
     init {
-        if (cpf.length == 11) {
-            println("\nUsuário $nome cadastrado com sucesso!\n")
-        } else {
-            throw IllegalArgumentException("\nO CPF deve conter exatamente 11 números!\n")
-        }
+        if (cpfsCadastrados.contains(cpf))
+            throw IllegalArgumentException("\nCPF já cadastrado!\n")
+
+        println("\nCPF cadastrado com sucesso!\n")
+        cpfsCadastrados.add(cpf)
     }
 
     override fun toString(): String {
         return "Usuário: $nome, CPF: $cpf"
     }
 
-    fun adicionarComentario(id: Int, comentario: String) {
+    fun adicionarComentario(id: Int, comentario: String): String {
         try {
-            for (post in 0..CadastroMedico.postagens.size) {
-                if (post == id) {
+            for (post in 0..postagens.size) {
+                if (post == id - 1) {
 
-                    var postmodificado = CadastroMedico.postagens[post]
-                    CadastroMedico.postagens.removeAt(post)
+                    var postmodificado = postagens[post]
+                    postagens.removeAt(post)
 
-                    postmodificado += "\nComentários: $comentario - Autor(a): $nome"
-                    CadastroMedico.postagens.add(postmodificado)
-                    return
+                    postmodificado += "\nComentário: $comentario - Autor: $nome"
+                    postagens.add(postmodificado)
+                    return "\nComentário de $nome adicionado com sucesso!\n"
                 }
             }
-        } catch (e: IllegalArgumentException) {
-            throw IllegalArgumentException("ID do post não encontrado nas postagens!")
+            return ""
+        } catch (e: Exception) {
+            throw Exception("Id do post não encontrado nas postagens")
         }
     }
 }

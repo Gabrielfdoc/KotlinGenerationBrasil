@@ -1,3 +1,5 @@
+import BancoDeInformacoes.Companion.cnpjsCadastrados
+
 class CadastroEstabelcimento(
     nome: String,
     login: String,
@@ -7,29 +9,25 @@ class CadastroEstabelcimento(
 ) : Cadastro(nome, login, senha, telefone) {
 
     init {
-        if (cnpj.length == 14) {
-            println("\nEstabelecimento $nome cadastrado com sucesso!\n")
-        } else {
-            throw IllegalArgumentException("\nO CNPJ deve conter exatamente 14 números!\n")
-        }
+        if (cnpjsCadastrados.contains(cnpj))
+            throw IllegalArgumentException("\nCNPJ já cadastrado!\n")
+
+        println("\nEstabelecimento cadastrado com sucesso!\n")
+        cnpjsCadastrados.add(cnpj)
     }
 
     fun criarPostagem(post: String) {
-        var postagem = "Estabelecimento $nome postou:\n"
-        postagem += post
-        if (post.isNotBlank()) {
-            CadastroMedico.postagens.add(postagem)
-            return
+
+        if (post.isBlank()) {
+            println("\nO post não pode estar em branco!\n")
+        } else {
+            val postagem = "Estabelecimento $nome postou:\n$post"
+            Postagens.postagens.add(postagem)
         }
-        println("O post não pode estar em branco!")
     }
 
     fun deletarPostagem(postDeletado: Int) {
-        if (CadastroMedico.postagens.contains(CadastroMedico.postagens[postDeletado])) {
-            CadastroMedico.postagens.removeAt(postDeletado)
-            return
-        }
-        println("O $postDeletado não existe")
+        Postagens.postagens.removeAt(postDeletado)
     }
 
     /*

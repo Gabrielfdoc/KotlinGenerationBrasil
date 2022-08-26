@@ -1,3 +1,7 @@
+import BancoDeInformacoes.Companion.cpfsCadastrados
+import BancoDeInformacoes.Companion.crmMedicosCadastrados
+import Postagens.Companion.postagens
+
 class CadastroMedico(
     nome: String,
     login: String,
@@ -8,45 +12,28 @@ class CadastroMedico(
 ) : Cadastro(nome, login, senha, telefone) {
 
     init {
-        if (nome.isNotBlank() && login.isNotBlank() && senha.isNotBlank() &&
-            telefone.isNotBlank() && cpf.length == 11 && crm.length == 8
-        ) {
-            println("\nMédico $nome cadastrado com sucesso!\n")
-        } else {
-            throw IllegalArgumentException("\nCPF deve conter exatamente" +
-                    "11 números e o CRM exatamente 8 caracteres!\n")
+        if (cpfsCadastrados.contains(cpf)) {
+            throw IllegalArgumentException("\nCPF já cadastrado!\n")
+        } else if (crmMedicosCadastrados.contains(crm)) {
+            throw IllegalArgumentException("\nCRM já cadastrado!\n")
         }
-    }
-
-    companion object {
-        val postagens = mutableListOf<String>()
-
-        fun listarPostagens(): String {
-            var posts = ""
-            for ((id, postagem) in postagens.withIndex()) {
-                posts += "ID: $id - $postagem\n"
-            }
-            return posts
-        }
+        println("\nMédico cadastrado com sucesso!\n")
+        cpfsCadastrados.add(cpf)
+        crmMedicosCadastrados.add(crm)
     }
 
     fun criarPostagem(post: String) {
-        var postagem = "Médico $nome postou:\n"
-        postagem += post
-        if (post.isNotBlank()) {
+
+        if (post.isBlank()) {
+            println("\nO post não pode estar em branco!\n")
+        } else {
+            val postagem = "Médico $nome postou:\n$post"
             postagens.add(postagem)
-            return
         }
-        println("O post não pode estar em branco!")
     }
 
     fun deletarPostagem(postDeletado: Int) {
-        if (postagens.contains(postagens[postDeletado])) {
-            postagens.removeAt(postDeletado)
-            return
-        } else {
-            println("O $postDeletado não existe!")
-        }
+        postagens.removeAt(postDeletado)
     }
 
     /*
