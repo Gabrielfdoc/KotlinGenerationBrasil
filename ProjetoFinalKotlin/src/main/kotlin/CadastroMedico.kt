@@ -16,10 +16,11 @@ class CadastroMedico(
             throw IllegalArgumentException("\nCPF já cadastrado!\n")
         } else if (crmMedicosCadastrados.contains(crm)) {
             throw IllegalArgumentException("\nCRM já cadastrado!\n")
+        } else {
+            println("\nMédico cadastrado com sucesso!\n")
+            cpfsCadastrados.add(cpf)
+            crmMedicosCadastrados.add(crm)
         }
-        println("\nMédico cadastrado com sucesso!\n")
-        cpfsCadastrados.add(cpf)
-        crmMedicosCadastrados.add(crm)
     }
 
     fun criarPostagem(post: String) {

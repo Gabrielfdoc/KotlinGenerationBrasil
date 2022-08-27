@@ -5,10 +5,8 @@ class Postagens {
 
         fun listarPostagens(): String {
             var posts = ""
-            var id = 1
-            for (postagem in postagens) {
-                posts += "id: $id - $postagem\n"
-                id++
+            for ((id, postagem) in postagens.withIndex()) {
+                posts += "ID: $id - $postagem\n"
             }
             return posts
         }
