@@ -84,8 +84,10 @@ fun deletaPostagens() {
 
                 if (Postagens.postagens[id].contains(resp)) {
                     cadastro.deletarPostagem(id)
+                    break
                 } else {
                     println("Post não pertence a este médico!")
+                    break
                 }
 
             } else if (cadastro.pegaNome() == resp && cadastro is CadastroEstabelcimento) {
@@ -94,9 +96,11 @@ fun deletaPostagens() {
 
                 if (Postagens.postagens[id].contains(resp)) {
                     cadastro.deletarPostagem(id)
+                    break
                 }
             } else {
                 println("\nNão existe nenhum post realizado por $resp!\n")
+                break
             }
         }
     } catch (e: Exception) {
@@ -162,22 +166,26 @@ fun criandoPosts() {
     print("Informe o seu nome: ")
     val nome = readln()
 
-    for (cadastro in listaCadastros) {
-        if (cadastro.pegaNome() == nome && cadastro is CadastroMedico) {
-            println("Olá doutor(a) ${cadastro.pegaNome()}")
-            print("Insira sua postagem: ")
-            val post = readln()
-            cadastro.criarPostagem(post)
-        } else if (cadastro.pegaNome() == nome && cadastro is CadastroEstabelcimento) {
-            println("Olá estabelecimento ${cadastro.pegaNome()}")
-            print("Insira sua postagem: ")
-            val post = readln()
+    try {
+        for (cadastro in listaCadastros) {
+            if (cadastro.pegaNome() == nome && cadastro is CadastroMedico) {
+                println("Olá doutor(a) ${cadastro.pegaNome()}")
+                print("Insira sua postagem: ")
+                val post = readln()
 
-            if (post.isBlank())
-            cadastro.criarPostagem(post)
-        } else {
-            throw IllegalArgumentException("\nDados não encontrados!\n")
+                cadastro.criarPostagem(post)
+                break
+            } else if (cadastro.pegaNome() == nome && cadastro is CadastroEstabelcimento) {
+                println("Olá estabelecimento ${cadastro.pegaNome()}")
+                print("Insira sua postagem: ")
+                val post = readln()
+
+                cadastro.criarPostagem(post)
+                break
+            }
         }
+    } catch (e: Exception) {
+        throw IllegalArgumentException("Dados não encontrados!")
     }
 }
 
